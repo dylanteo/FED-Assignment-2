@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const APIKEY = "65b11c87a07ee8c4ea038308"
-    document.getElementById("add-update-msg").style.display = "none";
 
     document.getElementById("signup").addEventListener("click", function(e){
         
@@ -11,42 +10,38 @@ document.addEventListener('DOMContentLoaded', function() {
         let email = document.getElementById("email").value;
         let password = document.getElementById("pass").value;
 
-        let jsondata = {
-            "username": username,
-            "email": email,
-            "password": password
-        }
+
         let settings = {
             method: "POST", //[cher] we will use post to send info
             headers: {
                 "Content-Type": "application/json",
                 "x-apikey": APIKEY
             },
-            body: JSON.stringify(jsondata),
+            body: JSON.stringify({
+                username,
+                email,
+                password
+            }),
             beforeSend: function () {
-                //@TODO use loading bar instead
-                // Disable our button or show loading bar
-                document.getElementById("signup").disabled = true;
                 // Clear our form using the form ID and triggering its reset feature
                 document.getElementById("register-form").reset();
             }
             }
         fetch(apiUrl, settings)
-            .then(response => response.json())
+            .then(response =>{
+                if (!response.ok) { // Check if response status is not OK
+                throw new Error('Error:', error);
+                }return response.json()
+            })
             .then(data => {
+                alert("Sign up Succesful!");
                 console.log(data);
-                document.getElementById("signup").disabled = false;
-                //@TODO update frontend UI 
-                document.getElementById("add-update-msg").innerText = "Contact record successfully added";
-                document.getElementById("add-update-msg").style.display = "block";
-                setTimeout(function () {
-                document.getElementById("add-update-msg").style.display = "none";
-                }, 3000);
-                // Clear the form
+                localStorage.setItem('username', username);
                 document.getElementById("register-form").reset();
             })
-        .finally(() => {
-            document.getElementById("signup").disabled = false;
+        .catch(error =>{
+            console.error('Error:', error);
+            alert("Email or username already in use / Invalid email");
         });
         document.getElementById("register-form").reset();
         });
