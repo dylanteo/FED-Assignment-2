@@ -19,14 +19,9 @@
         <!-- Sign up form -->
         <section class="cl-signup">
             <div class="cl-container">
-                <div id="add-update-msg">
-                    <div class="alert alert-success" role="alert">
-                        Contact record successfully added
-                    </div>
-                </div>
                 <div class="cl-signup-content">
                     <div class="cl-signup-form">
-                        <h2 class="cl-form-title">SIGN UP</h2>
+                        <h2 class="cl-form-title">LOG IN</h2>
                         <form method="POST" class="cl-register-form" id="register-form">
                             <div class="cl-form-group">
                                 <label for="name"><i class="zmdi zmdi-account cl-material-icons-name"></i></label>
@@ -40,10 +35,7 @@
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="pass" id="pass" placeholder="Password"/>
                             </div>
-                            <div class="cl-form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                            </div>
+                            <!-- Removed the Repeat Password Field -->
                             <div class="cl-form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="cl-label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="cl-term-service">Terms of service</a></label>
@@ -55,7 +47,7 @@
                     </div>
                     <div class="cl-signup-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="LogIn.html" class="cl-signup-image-link">LOG IN</a> <!-- Updated text -->
+                        <a href="signup.html" class="cl-signup-image-link">SIGN UP!</a> <!-- Updated text -->
                     </div>
                 </div>
             </div>
@@ -65,6 +57,6 @@
 
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
