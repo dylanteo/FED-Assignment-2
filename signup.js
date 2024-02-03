@@ -26,24 +26,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Clear our form using the form ID and triggering its reset feature
                 document.getElementById("register-form").reset();
             }
-            }
+        }
         fetch(apiUrl, settings)
-            .then(response =>{
-                if (!response.ok) { // Check if response status is not OK
-                throw new Error('Error:', error);
-                }return response.json()
-            })
-            .then(data => {
-                alert("Sign up Succesful!");
-                console.log(data);
-                localStorage.setItem('username', username);
-                document.getElementById("register-form").reset();
-            })
+        .then(response =>{
+            if (!response.ok) { // Check if response status is not OK
+            throw new Error('Error:', error);
+            }return response.json()
+        })
+        .then(data => {
+            alert("Sign up Succesful!");
+            console.log(data);
+            document.getElementById("register-form").reset();
+        })
         .catch(error =>{
             console.error('Error:', error);
             alert("Email or username already in use / Invalid email");
         });
         document.getElementById("register-form").reset();
-        });
     });
+});
 

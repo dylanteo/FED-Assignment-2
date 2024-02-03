@@ -1,3 +1,4 @@
+
 // Function to add items to cart
 function addToCart() {
     document.querySelectorAll('.btn-primary').forEach(button => {
@@ -86,3 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayCart();
     }
 });
+
+if (localStorage.getItem('loggedin') === 'true'){
+    document.getElementById("usernamePlaceholder").textContent = localStorage.getItem('username');
+}
