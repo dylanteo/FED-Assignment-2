@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updatePricesFromAPI() {
-    fetch('https://fedassignment2-b6e1.restdb.io/rest/inventory',{// Replace with your API URL
+    fetch('https://fedassignment2-b6e1.restdb.io/rest/item',{// Replace with your API URL
         method : 'GET',
         headers: {
             'x-apikey': APIKEY,
