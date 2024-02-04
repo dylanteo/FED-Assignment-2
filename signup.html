@@ -3,60 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Now!</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
+    <title>Login</title>
     <link rel="stylesheet" href="signuplogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
 <body>
-
-    <div class="cl-main">
-
-        <!-- Sign up form -->
-        <section class="cl-signup">
-            <div class="cl-container">
-                <div class="cl-signup-content">
-                    <div class="cl-signup-form">
-                        <h2 class="cl-form-title">SIGN UP</h2>
-                        <form method="POST" class="cl-register-form" id="register-form">
-                            <div class="cl-form-group">
-                                <label for="name"><i class="zmdi zmdi-account cl-material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name"/>
-                            </div>
-                            <div class="cl-form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
-                            </div>
-                            <div class="cl-form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
-                            </div>
-                            
-                            <div class="cl-form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="cl-label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="cl-term-service">Terms of service</a></label>
-                            </div>
-                            <div class="cl-form-group cl-form-button">
-                                <input type="submit" name="signup" id="signup" class="cl-form-submit" value="Register"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="cl-signup-image">
-                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="LogIn.html" class="cl-signup-image-link">LOG IN</a> <!-- Updated text -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <div class="left-column">
+        <img src="images/NikeShoeShopping2.png" alt="Login">
     </div>
-
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <div class="right-column">
+        <form class="loginForm">
+            <h1>SIGN UP</h1>
+            <span>
+                <input type="text" id="user" required autocomplete="off">
+                <p>UserName</p>
+                <label for="user"><i class="fas fa-user"></i></label>
+            </span>
+            <span>
+                <input type="email" id="email" required autocomplete="off">
+                <p>Email</p>
+                <label for="email"><i class="fas fa-envelope"></i></label>
+            </span>
+            <span>
+                <input type="password" id="password" required>
+                <p>Password</p>
+                <label for="password"><i class="fas fa-lock"></i></label>
+            </span>
+            <button class="btn" type="submit">LOGIN</button>
+            
+        </form>
+    </div>
 </body>
 </html>
