@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="signuplogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
@@ -12,15 +12,15 @@
         <img src="images/NikeShoeShopping2.png" alt="Login">
     </div>
     <div class="right-column">
-        <form class="loginForm">
+        <form class="loginForm" id="register-form">
             <h1>SIGN UP</h1>
             <span>
-                <input type="text" id="user" required autocomplete="off">
-                <p>UserName</p>
+                <input type="text" id="username" required>
+                <p>Username</p>
                 <label for="user"><i class="fas fa-user"></i></label>
             </span>
             <span>
-                <input type="email" id="email" required autocomplete="off">
+                <input type="email" id="email" required>
                 <p>Email</p>
                 <label for="email"><i class="fas fa-envelope"></i></label>
             </span>
@@ -29,7 +29,7 @@
                 <p>Password</p>
                 <label for="password"><i class="fas fa-lock"></i></label>
             </span>
-            <button class="btn" type="submit">LOGIN</button>
+            <button class="btn" type="submit" id = "signup">SIGN UP</button>
             
         </form>
     </div>

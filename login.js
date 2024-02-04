@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const APIKEY = "65b11c87a07ee8c4ea038308";
 
-    document.getElementById("register-form").addEventListener("submit", function(e){
+    document.getElementById("loginform").addEventListener("submit", function(e){
         e.preventDefault(); 
         
     
-        let username = document.getElementById("name").value;
-        let password = document.getElementById("pass").value;
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
         
         fetch('https://fedassignment2-b6e1.restdb.io/rest/account?q={"username":"' + username + '"}', {
             method: 'GET', // Changed to POST

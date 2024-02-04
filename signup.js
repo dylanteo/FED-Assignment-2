@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         var apiUrl = 'https://fedassignment2-b6e1.restdb.io/rest/account'; // Replace with your API URL
 
-        let username = document.getElementById("name").value;
+        let username = document.getElementById("username").value;
         let email = document.getElementById("email").value;
-        let password = document.getElementById("pass").value;
+        let password = document.getElementById("password").value;
 
 
         let settings = {
