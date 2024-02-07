@@ -60,7 +60,7 @@ body {
 }
 .loginForm span input:focus ~ p {
   transform: translateY(-200%);
-  color: rgb(255,0,98);
+  color: rgb(253,0,98);
   font-size: 1rem;
 }
 .loginForm span input:valid ~ p {
@@ -104,13 +104,13 @@ span label::after {
   color: #fff;
   width: 80%;
   cursor: pointer;
-  background: rgb(255,0,98);
+  background: rgb(253 253, 0);
   margin: 80px 0 40px 0;
   border-radius: 40px;
   transition: 0.25s ease-in-out;
 }
 .loginForm .btn:hover {
-  background: rgb(255,0,150);
+  background: rgb(255, 243, 132);
 }
 .loginForm .link {
   font-size: 1.2rem;
@@ -118,8 +118,20 @@ span label::after {
   color: gray;
 }
 .loginForm .link:hover {
-  color: rgb(255,0,98);
+  color: rgb(255, 243, 132);
 }
+
+.link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: gray;
+  margin-top: 20px; /* Adjust the margin-top value as needed */
+}
+
+.link:hover {
+  color: rgb(255, 0, 98);
+}
+
 @media(max-width:850px) {
   .left-column {
       display: none;
