@@ -319,3 +319,6 @@ body {
         font-size: 0.8rem; /* Smaller font size for button text */
     }
 }
+.id{
+    display:none;
+}
