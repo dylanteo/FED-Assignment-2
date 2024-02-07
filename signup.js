@@ -104,7 +104,7 @@ function login(){
             }
             return response.json();
         })
-        .then(data => {
+        .then(async data => {
             if (data.length > 0 && data[0].password === password) { // Assuming the API returns a token on successful login
                 console.log(data);
                 alert("Login successful!");
@@ -115,58 +115,10 @@ function login(){
                 localStorage.setItem('account', accountdetails);
                 localStorage.setItem('loggedin', 'true');
 
-                fetch('https://fedassignment2-b6e1.restdb.io/rest/pointcard', settings)
-                .then(response => {
-                    if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Extract the ObjectID from the response
-                    if (data.length > 0) {
-                    console.log(data);
-                    for (let i = 0; i < data.length; i++) {
-                        if (data[i].user[0]._id == localStorage.getItem('account')) {
-                            localStorage.setItem('pointcardid', data[i]._id);
-                            console.log(localStorage.getItem('pointcardid'));
-                        }
-                    }
-                    // Now you can use this ObjectID to perform further operations
-                    } else {
-                    console.log('No data found');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-                fetch('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', settings)
-                .then(response => {
-                    if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Extract the ObjectID from the response
-                    if (data.length > 0) {
-                    console.log(data);
-                    for (let i = 0; i < data.length; i++) {
-                        if (data[i].user[0]._id == localStorage.getItem('account')) {
-                            localStorage.setItem('cartid', data[i]._id);
-                            console.log(localStorage.getItem('cartid'));
-                        }
-                    }
-                    // Now you can use this ObjectID to perform further operations
-                    } else {
-                    console.log('No data found');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-
-            window.location.href = "index.html";// Replace with your destination URL
+                await fetchAdditionalData('https://fedassignment2-b6e1.restdb.io/rest/pointcard', settings, 'pointcardid');
+                await fetchAdditionalData('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', settings, 'cartid');
+                window.location.href = "index.html";
+                
             } else {
                 // Handle login failure
                 alert('Login failed!');
@@ -180,6 +132,25 @@ function login(){
 
 }
 
+async function fetchAdditionalData(url, settings, localStorageKey) {
+    const response = await fetch(url, settings);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    if (data.length > 0) {
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].user[0]._id == localStorage.getItem('account')) {
+                localStorage.setItem(localStorageKey, data[i]._id);
+                console.log(localStorage.getItem(localStorageKey));
+                break; // Assuming you only need to match the first found item
+            }
+        }
+    } else {
+        console.log('No data found');
+    }
+}
 
 if (window.location.href.includes('login.html')) {
     login();
