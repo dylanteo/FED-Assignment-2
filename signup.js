@@ -27,6 +27,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById("register-form").reset();
             }
         }
+
+        let cartsettings = {
+            method: "POST", //[cher] we will use post to send info
+            headers: {
+                "Content-Type": "application/json",
+                "x-apikey": APIKEY
+            },
+            body: JSON.stringify({
+                user
+            })
+        }
+        let pointssettings = {
+            method: "POST", //[cher] we will use post to send info
+            headers: {
+                "Content-Type": "application/json",
+                "x-apikey": APIKEY
+            },
+            body: JSON.stringify({
+                user,
+                points: 0
+            })
+        }
         fetch(apiUrl, settings)
         .then(response =>{
             if (!response.ok) { // Check if response status is not OK
@@ -36,6 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             alert("Sign up Succesful!");
             console.log(data);
+            let user = data;
+            fetch('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', cartsettings)
+            .then(data =>{
+                console.log(user);
+                console.log(data);
+            })
+            fetch('https://fedassignment2-b6e1.restdb.io/rest/pointcard', pointssettings)
+            .then(data =>{
+                console.log(data);
+            })
             document.getElementById("register-form").reset();
         })
         .catch(error =>{
@@ -43,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Email or username already in use / Invalid email");
         });
         document.getElementById("register-form").reset();
+
     });
 });
 

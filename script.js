@@ -3,18 +3,42 @@
 function addToCart() {
     document.querySelectorAll('.btn-primary').forEach(button => {
         button.addEventListener('click', function() {
+            const APIKEY = "65b11c87a07ee8c4ea038308"
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let cardBody = this.closest('.card-body');
             let itemImage = cardBody.previousElementSibling.getAttribute('src');
-            let itemName = cardBody.querySelector('.card-title').textContent;
-            let itemPrice = cardBody.querySelector('.card-text').textContent;
-
+            let itemname = cardBody.querySelector('.card-title').textContent;
+            let price = cardBody.querySelector('.card-text').textContent;
+            const cardID = cardBody.querySelector('.id').textContent.trim();
+            let id = JSON.stringify({
+                cardID,
+                itemname,
+                price
+            });
             let item = {
-                name: itemName,
-                price: itemPrice,
+                name: itemname,
+                price: price,
                 image: itemImage,
                 quantity: 1
+            }
+            let settings = {
+                method: 'PATCH',
+                headers: {
+                    'x-apikey': APIKEY
+                },
+                body: JSON.stringify({ field2: id })
             };
+            let user = localStorage.getItem('account');
+
+            fetch(`https://fedassignment2-b6e1.restdb.io/rest/shoppingcart/${user}`, settings)
+            .then(response => {
+                if (response.status === 200) {
+                  console.log('Data updated successfully!');
+                } else {
+                  console.error('Failed to update data. Status code:', response.status);
+                }
+              })
+
 
             const existingItem = cart.find(cartItem => cartItem.name === item.name);
             if (existingItem) {
@@ -26,10 +50,6 @@ function addToCart() {
             localStorage.setItem('cart', JSON.stringify(cart));
         });
     });
-}
-
-if (window.location.href.includes('shopping.html')) {
-    addToCart();
 }
 
 
@@ -74,11 +94,6 @@ function removeItem(index) {
     displayCart(); // Refresh cart display
 }
 
-if (window.location.href.includes('checkout.html')) {
-    displayCart();
-}
-
-
 // Check which page is currently loaded and run the appropriate function
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.href.includes('shopping.html')) {
@@ -90,4 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if (localStorage.getItem('loggedin') === 'true'){
     document.getElementById("usernamePlaceholder").textContent = localStorage.getItem('username');
+}
+
+function checkout(){
+
 }

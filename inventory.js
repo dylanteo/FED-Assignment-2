@@ -1,3 +1,4 @@
+
 const APIKEY = "65b11c87a07ee8c4ea038308";
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,13 +25,16 @@ function updatePricesFromAPI() {
             const cardID = card.querySelector('.id').textContent.trim();
             const item = items.find(item => item.id == cardID);
             if (item) {
+                let price = parseFloat(item.price).toFixed(2);
                 card.querySelector('.card-title').textContent = item.itemname;
-                card.querySelector('.card-text').textContent = `$${item.price}0`;
+                card.querySelector('.card-text').textContent = `$${price}`;
                 const addToCartButton = card.querySelector('.btn-primary');
                 addToCartButton.setAttribute('data-name', item.itemname);
-                addToCartButton.setAttribute('data-price', `$${item.price}0`);
+                addToCartButton.setAttribute('data-price', `$${price}`);
+                card.querySelector('.card-img-top').src = item.photo;
             }
         });
     })
     .catch(error => console.error('Error:', error));
 }
+

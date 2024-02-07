@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert("Login successful!");
                 // Store the token/session data
                 localStorage.setItem('username', username); // Storing token instead of username
+                email = data[0].email;
+                let accountdetails =  `${username} ${email} ${password}`;
+                localStorage.setItem('account', accountdetails);
                 localStorage.setItem('loggedin', 'true');
                 window.location.href = 'index.html'; // Replace with your destination URL
             } else {
