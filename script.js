@@ -1,4 +1,3 @@
-
 // Function to add items to cart
 function addToCart() {
     document.querySelectorAll('.btn-primary').forEach(button => {
@@ -28,9 +27,6 @@ function addToCart() {
     });
 }
 
-if (window.location.href.includes('shopping.html')) {
-    addToCart();
-}
 
 
 
@@ -49,7 +45,7 @@ function displayCart() {
                     <div class="row text-muted">${item.name}</div>
                     <div class="row">Quantity: ${item.quantity}</div>
                 </div>
-                <div class="col">&euro; ${(parseFloat(item.price.slice(1)) * item.quantity).toFixed(2)} <span class="close" onclick="removeItem(${index})">&#10005;</span></div>
+                <div class="col">S$ ${(parseFloat(item.price.slice(1)) * item.quantity).toFixed(2)} <span class="close" onclick="removeItem(${index})">&#10005;</span></div>
             </div>
         `;
         cartContainer.innerHTML += itemHtml;
@@ -64,7 +60,7 @@ function updateSummary() {
     let totalPrice = cart.reduce((sum, item) => sum + (parseFloat(item.price.slice(1)) * item.quantity), 0);
     
     document.querySelector('.summary .col').textContent = `ITEMS ${totalItems}`;
-    document.querySelector('.summary .col.text-right').textContent = `&euro; ${totalPrice.toFixed(2)}`;
+    document.querySelector('.summary .col.text-right').textContent = `S$ ${totalPrice.toFixed(2)}`;
 }
 
 function removeItem(index) {
@@ -74,9 +70,7 @@ function removeItem(index) {
     displayCart(); // Refresh cart display
 }
 
-if (window.location.href.includes('checkout.html')) {
-    displayCart();
-}
+
 
 
 // Check which page is currently loaded and run the appropriate function
@@ -87,7 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
         displayCart();
     }
 });
-
-if (localStorage.getItem('loggedin') === 'true'){
-    document.getElementById("usernamePlaceholder").textContent = localStorage.getItem('username');
-}
