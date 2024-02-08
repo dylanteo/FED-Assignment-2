@@ -1,4 +1,4 @@
-/* nav bar css nav bar css nav bar css*/
+/* nav bar css nav bar css nav bar css */
 a {
   font-size: 14px;
   font-weight: 700;
@@ -12,10 +12,6 @@ a {
   outline: none !important;
   box-shadow: none !important;
 }
-.nav-link.active {
-  color: #007bff; /* Change the color to indicate active state */
-  border-bottom: 2px solid #007bff; /* Add a bottom border for effect */
-}
 
 @media screen and (max-width: 540px) {
   .centerOnMobile {
@@ -23,38 +19,7 @@ a {
   }
 }
 
-/* CSS for the dropdown menu */
-/* CSS for the dropdown menu */
-.dropdown-menu {
-  padding: 0;
-}
-
-/* CSS for the profile card */
-.profile-card {
-  width: 200px; /* Adjust width as needed */
-  border: 1px solid #ced4da; /* Border color */
-}
-
-.profile-card-body {
-  padding: 1rem;
-}
-
-.profile-card-title {
-  font-size: 1.25rem; /* Adjust font size */
-  margin-bottom: 0.5rem;
-}
-
-.profile-card-text {
-  margin-bottom: 0.5rem;
-}
-
-.btn-logout {
-  width: 100%; /* Button width */
-}
-
-
-
-/* Sales Banner CSS- Static Sales banner Sales banner css*/
+/* Sales Banner CSS- Static Sales banner Sales banner css */
 .sales-banner {
   width: 100%;
   text-align: center;
@@ -65,45 +30,46 @@ a {
   font-weight: bold;
   border-top: 1px solid #ccc; /* Light grey top border */
   border-bottom: 1px solid #ccc; /* Light grey bottom border */
+  margin-bottom: 65px;
 }
 
-
 :root {
-  /*  Primary */
-  --orange: hsl(26, 100%, 55%);
-  --pale-orange: hsl(25, 100%, 94%);
+/*  Primary */
+--orange: hsl(26, 100%, 55%);
+--pale-orange: hsl(25, 100%, 94%);
 
-  /* Neutral */
-  --very-dark-blue: hsl(220, 13%, 13%);
-  --dark-grayish-blue: hsl(219, 9%, 45%);
-  --grayish-blue: hsl(220, 14%, 75%);
-  --light-grayish-blue: hsl(223, 64%, 98%);
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+/* Neutral */
+--very-dark-blue: hsl(220, 13%, 13%);
+--dark-grayish-blue: hsl(219, 9%, 45%);
+--grayish-blue: hsl(220, 14%, 75%);
+--light-grayish-blue: hsl(223, 64%, 98%);
+--white: hsl(0, 0%, 100%);
+--black: hsl(0, 0%, 0%);
 }
 
 html {
-  font-size: 62.5%;
-  box-sizing: border-box;
+font-size: 62.5%;
+box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
+padding: 0;
+margin: 0;
+box-sizing: inherit;
 }
 
 body {
-  font-family: "Kumbh Sans", sans-serif;
-  position: relative;
+font-family: "Kumbh Sans", sans-serif;
+position: relative;
 }
 
 .body-wrapper {
-  position: absolute;
-  z-index: 50;
+position: absolute;
+z-index: 50;
 }
+
 
 /* Product section styling */
 .item {
@@ -121,7 +87,6 @@ body {
   border-radius: 5%;
   cursor: pointer;
   margin-bottom: 3.5rem;
-  margin-top: 110px; 
   
 }
 
@@ -303,4 +268,92 @@ body {
   .price-box__main-new {
     font-size: 3rem;
   }
+}
+/* Footer Styles */
+footer {
+  display: flex;
+  background-color: black; /* Changed footer background to black */
+  color: white; /* Changed text color to white */
+}
+
+.footerLeft {
+  flex: 2;
+  display: flex;
+
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.fMenuTitle {
+  font-size: 16px;
+}
+
+.fList {
+  padding: 0;
+  list-style: none;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footerRight {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fInput {
+  padding: 5px;
+}
+
+.fButton {
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+.fIcons {
+  display: flex;
+  
+}
+
+.fIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  fill: rgb(253, 253, 253);
+}
+
+/* End of Footer Styles */
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 480px) {
+  footer {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footerLeft {
+      padding: 20px;
+      width: 90%;
+  }
+
+  .footerRight {
+      padding: 20px;
+      width: 90%;
+      align-items: center;
+      background-color: black; /* Changed footer background to black */
+  }
+
+  .payment {
+      width: 90%;
+      padding: 20px;
+  }
+}
+.id{
+  display:none;
 }

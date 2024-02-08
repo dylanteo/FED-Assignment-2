@@ -1,11 +1,58 @@
-
-
-
-.title {
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .modal-content {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  
+  
+  .title {
     margin-bottom: 5vh;
-}
-
-.card {
+  }
+  
+  .card {
     margin: auto;
     max-width: 1400px; /* Increased max-width for a bigger card */
     width: 90%;
@@ -15,15 +62,15 @@
     padding: 2vh; /* Added padding for proper proportions */
     background-color: #faf9f6;
     margin-top: 20vh; /* Lowered the card to the middle of the page */
-}
-
-@media (max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .card {
         margin: 3vh auto;
     }
-}
-
-.cart {
+  }
+  
+  .cart {
     background-color: #ffffff;
     padding: 4vh 5vh;
     border-bottom-left-radius: 1rem;
@@ -32,17 +79,17 @@
     flex-direction: column; /* Adjust content layout to column */
     justify-content: space-between; /* Space items evenly */
     height: 150%; /* Take the full height of the card */
-}
-
-@media (max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .cart {
         padding: 4vh;
         border-bottom-left-radius: unset;
         border-top-right-radius: 1rem;
     }
-}
-
-.summary {
+  }
+  
+  .summary {
     background-color: #ddd;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -52,77 +99,77 @@
     flex-direction: column; /* Adjust content layout to column */
     justify-content: space-between; /* Space items evenly */
     height: 100%; /* Take the full height of the card */
-}
-
-@media (max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .summary {
         border-top-right-radius: unset;
         border-bottom-left-radius: 1rem;
     }
-}
-.summary .col-2{
+  }
+  .summary .col-2{
     padding: 0;
-}
-.summary .col-10
-{
+  }
+  .summary .col-10
+  {
     padding: 0;
-}.row{
+  }.row{
     margin: 0;
-}
-.title b{
+  }
+  .title b{
     font-size: 1.5rem;
-}
-.main{
+  }
+  .main{
     margin: 0;
     padding: 2vh 0;
     width: 100%;
-}
-.col-2, .col{
+  }
+  .col-2, .col{
     padding: 0 1vh;
-}
-a{
+  }
+  a{
     padding: 0 1vh;
-}
-.close{
+  }
+  .close{
     margin-left: auto;
     font-size: 0.7rem;
-}
-img{
+  }
+  img{
     width: 3.5rem;
-}
-.back-to-shop{
+  }
+  .back-to-shop{
     margin-top: 4.5rem;
-}
-h5{
+  }
+  h5{
     margin-top: 4vh;
-}
-hr{
+  }
+  hr{
     margin-top: 1.25rem;
-}
-form{
+  }
+  form{
     padding: 2vh 0;
-}
-select{
+  }
+  select{
     border: 1px solid rgba(0, 0, 0, 0.137);
     padding: 1.5vh 1vh;
     margin-bottom: 4vh;
     outline: none;
     width: 100%;
     background-color: rgb(247, 247, 247);
-}
-input{
+  }
+  input{
     border: 1px solid rgba(0, 0, 0, 0.137);
     padding: 1vh;
     margin-bottom: 4vh;
     outline: none;
     width: 100%;
     background-color: rgb(247, 247, 247);
-}
-input:focus::-webkit-input-placeholder
-{
+  }
+  input:focus::-webkit-input-placeholder
+  {
       color:transparent;
-}
-.btn{
+  }
+  .btn{
     background-color: #000;
     border-color: #000;
     color: white;
@@ -131,8 +178,8 @@ input:focus::-webkit-input-placeholder
     margin-top: 4vh;
     padding: 1vh;
     border-radius: 0;
-}
-.btn:focus{
+  }
+  .btn:focus{
     box-shadow: none;
     outline: none;
     box-shadow: none;
@@ -141,20 +188,20 @@ input:focus::-webkit-input-placeholder
     user-select: none;
     -webkit-user-select: none;
     transition: none; 
-}
-.btn:hover{
+  }
+  .btn:hover{
     color: white;
-}
-a{
+  }
+  a{
     color: black; 
-}
-a:hover{
+  }
+  a:hover{
     color: black;
     text-decoration: none;
-}
- #code{
+  }
+  #code{
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
     background-repeat: no-repeat;
     background-position-x: 95%;
     background-position-y: center;
-}
+  }
