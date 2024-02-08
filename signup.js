@@ -143,6 +143,9 @@ async function fetchAdditionalData(url, settings, localStorageKey) {
         for (let i = 0; i < data.length; i++) {
             if (data[i].user[0]._id == localStorage.getItem('account')) {
                 localStorage.setItem(localStorageKey, data[i]._id);
+                if (url == 'https://fedassignment2-b6e1.restdb.io/rest/pointcard' ){
+                    localStorage.setItem('points', data[i].points)
+                }
                 console.log(localStorage.getItem(localStorageKey));
                 break; // Assuming you only need to match the first found item
             }

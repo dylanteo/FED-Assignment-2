@@ -98,22 +98,6 @@ function removeItem(index) {
 }
 
 
-
-
-// Check which page is currently loaded and run the appropriate function
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.href.includes('shopping.html') || window.location.href.includes('productpage.html')) {
-        addToCart();
-    } else if (window.location.href.includes('checkout.html')) {
-        displayCart();
-        checkout();
-    }
-});
-
-if (localStorage.getItem('loggedin') === 'true'){
-    document.getElementById("usernamePlaceholder").textContent = localStorage.getItem('username');
-}
-
 function checkout() {
     // Add event listener to the "CHECKOUT" button
     document.getElementById('checkout').addEventListener('click', async function() {
@@ -144,7 +128,7 @@ function checkout() {
                 },
                 body: JSON.stringify({ points: newTotalPoints })
             });
-    
+            localStorage.setItem('points', newTotalPoints);
             // Update stock for each item
             for (const element of cart) {
                 let itemResponse = await fetch(`https://fedassignment2-b6e1.restdb.io/rest/item?q={"itemname":"${element.name}"}`, {
@@ -179,3 +163,40 @@ function checkout() {
 
     
 };
+
+// Check which page is currently loaded and run the appropriate function
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.href.includes('shopping.html') || window.location.href.includes('productpage.html')) {
+        addToCart();
+    } else if (window.location.href.includes('checkout.html')) {
+        displayCart();
+        checkout();
+    }
+});
+
+if (localStorage.getItem('loggedin') === 'true' && !window.location.href.includes('checkout.html')){
+    document.getElementById("usernamePlaceholder").innerHTML = `
+    <li class="nav-item dropdown">
+    <a class="nav-link profile-dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-circle-user me-1"></i> ${localStorage.getItem('username').toUpperCase()} <i class="fa-solid fa-arrow-down"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <div class="profile-card">
+            <div class="profile-card-body">
+                <h5 class="profile-card-title">${localStorage.getItem('username')}</h5>
+                <p class="profile-card-text">Points: ${localStorage.getItem('points')}</p>
+                <a href="#" class="btn btn-danger btn-logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+</li>`
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.href.includes('checkout.html')){
+        document.getElementById('pointstoadd').textContent = `POINTS: ${localStorage.getItem('points')}`
+        if (parseInt(document.getElementById('pointstouse')) < parseInt(localStorage.getItem('points'))){
+            
+        }
+    }
+});
