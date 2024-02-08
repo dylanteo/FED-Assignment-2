@@ -13,6 +13,7 @@
 </head>
   <body>
 
+  <nav>
     <div class="superNav border-bottom py-2 bg-light">
       <div class="container">
         <div class="row">
@@ -31,12 +32,12 @@
       </div>
     </div>
     
-    <nav class="navbar navbar-expand-lg bg-white navbar-light p-3 shadow-sm">
+    <div class="navbar navbar-expand-lg bg-white navbar-light p-3 shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="#"><i class="fa-solid fa-shop me-2"></i> <strong>NIKE SINGAPORE</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-      </button>
+        </button>
         
         <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
           <div class="input-group">
@@ -54,40 +55,36 @@
             </div>
           </div>
           <ul class="navbar-nav ms-auto ">
-              <li class="nav-item">
-                  <a class="nav-link mx-2 text-uppercase" href="index.html">Offers</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="shopping.html">Products</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link mx-2 text-uppercase" href="spinthewheel.html">DAILYSPIN</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="checkout.html"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
-              </li>
-              <li class="nav-item"id="usernamePlaceholder">
-                <a class="nav-link mx-2 text-uppercase" href="login.html" ><i class="fa-solid fa-circle-user me-1"></i> Account</a>
-              </li>
+            <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="index.html">Offers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="shopping.html">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="spinthewheel.html">DAILYSPIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2 text-uppercase" href="checkout.html"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+            </li>
+            <li class="nav-item" id="usernamePlaceholder">
+              <a class="nav-link mx-2 text-uppercase" href="login.html" ><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+            </li>
             
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
 
-
-    <div class="sales-banner">
+    <section class="sales-banner">
         Our Biggest Sales Yet. 50% off Everything
-    </div>
-
-    <div class="body-wrapper"></div>
-
- 
+    </section>
 
     <!-- Main item container -->
     <main class="item">
       <section class="img">
-        <img  class="img-main">
+        <img src="temp" alt="productimg" class="img-main">
         
       </section>
 
@@ -98,7 +95,7 @@
         <div class="price-box">
           <div class="price-box__main">
             <span class="price-box__main-new"></span>
-            <span class="price-box__main-discount"> 50%</span>
+            <span class="price-box__main-discount">50%</span>
           </div>
           <span class="price-box__old"></span>
         </div>
@@ -108,14 +105,69 @@
           <span class = "price-btn__txt" id="stock"></span>
         </div>
           <button class="price-cart__btn btn--orange add-to-cart-button">
-            <img src="images/icon-cart.svg"alt="cart image"class="price-cart__btn-img">
+            <img src="images/icon-cart.svg" alt="cart image" class="price-cart__btn-img">
             Add to cart
           </button>
-        </div>
+
       </section>
     </main>
 
 
+    <footer>
+      <div class="footerLeft">
+          <div class="footerMenu">
+              <h1 class="fMenuTitle">About Us</h1>
+              <ul class="fList">
+                  <li class="fListItem">Company</li>
+                  <li class="fListItem">Contact</li>
+                  <li class="fListItem">Careers</li>
+                  <li class="fListItem">Affiliates</li>
+                  <li class="fListItem">Stores</li>
+              </ul>
+          </div>
+          <div class="footerMenu">
+              <h1 class="fMenuTitle">Useful Links</h1>
+              <ul class="fList">
+                  <li class="fListItem">Support</li>
+                  <li class="fListItem">Refund</li>
+                  <li class="fListItem">FAQ</li>
+                  <li class="fListItem">Feedback</li>
+                  <li class="fListItem">Stories</li>
+              </ul>
+          </div>
+          <div class="footerMenu">
+              <h1 class="fMenuTitle">Products</h1>
+              <ul class="fList">
+                  <li class="fListItem">Air Force</li>
+                  <li class="fListItem">Air Jordan</li>
+                  <li class="fListItem">Air Dunks</li>
+                  <li class="fListItem">Running</li>
+                  <li class="fListItem">Air Max</li>
+              </ul>
+          </div>
+      </div>
+      <div class="footerRight">
+          <div class="footerRightMenu">
+              <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
+              <div class="fMail">
+                  <input type="text" placeholder="your@email.com" class="fInput">
+                  <button class="fButton">Join!</button>
+              </div>
+          </div>
+          <div class="footerRightMenu">
+              <h1 class="fMenuTitle">Follow Us</h1>
+              <div class="fIcons">
+                  <img src="images/facebook.png" alt="" class="fIcon">
+                  <img src="images/twitter.png" alt="" class="fIcon">
+                  <img src="images/instagram.png" alt="" class="fIcon">
+                  <img src="images/whatsapp.png" alt="" class="fIcon">
+              </div>
+          </div>
+          <div class="footerRightMenu">
+              <span class="copyright">@NIKESG. All rights reserved. 2024.</span>
+          </div>
+      </div>
+    </footer>
 <script src="inventory.js"></script>
 <script src="script.js"></script>
 <!-- Bootstrap JS, Popper.js, and jQuery -->
@@ -124,59 +176,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
 </body>
 
-<footer>
-  <div class="footerLeft">
-      <div class="footerMenu">
-          <h1 class="fMenuTitle">About Us</h1>
-          <ul class="fList">
-              <li class="fListItem">Company</li>
-              <li class="fListItem">Contact</li>
-              <li class="fListItem">Careers</li>
-              <li class="fListItem">Affiliates</li>
-              <li class="fListItem">Stores</li>
-          </ul>
-      </div>
-      <div class="footerMenu">
-          <h1 class="fMenuTitle">Useful Links</h1>
-          <ul class="fList">
-              <li class="fListItem">Support</li>
-              <li class="fListItem">Refund</li>
-              <li class="fListItem">FAQ</li>
-              <li class="fListItem">Feedback</li>
-              <li class="fListItem">Stories</li>
-          </ul>
-      </div>
-      <div class="footerMenu">
-          <h1 class="fMenuTitle">Products</h1>
-          <ul class="fList">
-              <li class="fListItem">Air Force</li>
-              <li class="fListItem">Air Jordan</li>
-              <li class="fListItem">Air Dunks</li>
-              <li class="fListItem">Running</li>
-              <li class="fListItem">Air Max</li>
-          </ul>
-      </div>
-  </div>
-  <div class="footerRight">
-      <div class="footerRightMenu">
-          <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
-          <div class="fMail">
-              <input type="text" placeholder="your@email.com" class="fInput">
-              <button class="fButton">Join!</button>
-          </div>
-      </div>
-      <div class="footerRightMenu">
-          <h1 class="fMenuTitle">Follow Us</h1>
-          <div class="fIcons">
-              <img src="images/facebook.png" alt="" class="fIcon">
-              <img src="images/twitter.png" alt="" class="fIcon">
-              <img src="images/instagram.png" alt="" class="fIcon">
-              <img src="images/whatsapp.png" alt="" class="fIcon">
-          </div>
-      </div>
-      <div class="footerRightMenu">
-          <span class="copyright">@NIKESG. All rights reserved. 2024.</span>
-      </div>
-  </div>
-</footer>
+
 </html>

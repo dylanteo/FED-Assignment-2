@@ -11,12 +11,14 @@ function addToCart() {
                 itemImage = cardBody.previousElementSibling.getAttribute('src');
                 itemName = cardBody.querySelector('.card-title').textContent;
                 itemPrice = cardBody.querySelector('.card-text').textContent;
+                
             }
             if (window.location.href.includes("productpage.html")){
                 let page = document.querySelector(".price");
                 itemImage = document.querySelector('.img-main').getAttribute('src');
                 itemName = page.querySelector('.price-main__heading').textContent;
                 itemPrice = page.querySelector('.price-box__main-new').textContent;
+                console.log(itemPrice);
             }
 
             // Ensure that item details are not undefined
@@ -24,9 +26,12 @@ function addToCart() {
                 console.error("Item details not found");
                 return; // Exit the function if item details are not found
             }
+
+            let formattedPrice = parseFloat(itemPrice.replace(/[^0-9.-]+/g, "")); // Remove non-numeric characters
+
             let item = {
                 name: itemName,
-                price: itemPrice,
+                price: formattedPrice,
                 image: itemImage,
                 quantity: 1
             };
@@ -62,7 +67,7 @@ function displayCart() {
                     <div class="row text-muted">${item.name}</div>
                     <div class="row">Quantity: ${item.quantity}</div>
                 </div>
-                <div class="col">S$ ${(parseFloat(item.price.slice(1)) * item.quantity).toFixed(2)} <span class="close" onclick="removeItem(${index})">&#10005;</span></div>
+                <div class="col">S$ ${(parseFloat(item.price) * item.quantity).toFixed(2)} <span class="close" onclick="removeItem(${index})">&#10005;</span></div>
             </div>
         `;
         cartContainer.innerHTML += itemHtml;
