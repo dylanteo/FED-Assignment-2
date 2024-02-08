@@ -1,3 +1,19 @@
+.back-to-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    padding: 10px;
+    background-color: #ffffff; /* Grey color */
+    border: 1px solid #cccccc; /* Matching border color */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #6e5151;
+}
+
+.back-to-home:hover {
+    background-color: #ffffff; /* Lighter grey on hover */
+}
 
 
 * {
