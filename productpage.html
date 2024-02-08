@@ -74,7 +74,7 @@
                 <a class="nav-link mx-2 text-uppercase" href="checkout.html"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="LogIn.html"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+                <a class="nav-link mx-2 text-uppercase" href="login.html"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
               </li>
             </ul>
           </div>
@@ -92,57 +92,37 @@
     <!-- Main item container -->
     <main class="item">
       <section class="img">
-        <img src="images/NikeShoeShopping6.jpeg" alt="" class="img-main" />
+        <img  class="img-main">
         
       </section>
 
       <section class="price">
         <h2 class="price-sub__heading">NIKE.CO</h2>
-        <h1 class="price-main__heading">Limited Edition</h1>
-        <p class="price-txt">
-          
-Introducing the stunning Yellow Nike Dunk Limited Edition sneakers, a true embodiment of style and individuality. These extraordinary kicks are a vibrant burst of sunshine on your feet, showcasing a brilliant shade of yellow that's impossible to ignore. With their sleek design and attention to detail, they effortlessly blend streetwear coolness with a touch of luxury.
-
-Crafted from high-quality materials, these limited edition Dunks offer supreme comfort and durability. The iconic Nike swoosh elegantly graces the sides, adding a touch of timeless class.These sneakers are your statement piece.
-        </p>
+        <h1 class="price-main__heading"></h1>
+        <p class="price-txt"></p>
         <div class="price-box">
           <div class="price-box__main">
-            <span class="price-box__main-new">$125.00</span>
+            <span class="price-box__main-new"></span>
             <span class="price-box__main-discount"> 50%</span>
           </div>
-          <span class="price-box__old">$250.00</span>
+          <span class="price-box__old"></span>
         </div>
 
-        <div class="price-btnbox">
-          <div class="price-btns">
-            <button class="price-btn__add price-btn">
-              <img
-                src="images/icon-plus.svg"
-                alt="plus sign"
-                class="price-btn__add-img price-btn__img"
-              />
-            </button>
-            <span class="price-btn__txt">0</span>
-            <button class="price-btn__remove price-btn">
-              <img
-                src="images/icon-minus.svg"
-                alt="minus sign"
-                class="price-btn__remove-img price-btn__img"
-              />
-            </button>
-          </div>
-          <button class="price-cart__btn btn--orange">
-            <img
-              src="images/icon-cart.svg"
-              alt="cart image"
-              class="price-cart__btn-img"
-            />
+        <div>
+          <span class = "price-btn__txt">Stock:</span>
+          <span class = "price-btn__txt" id="stock"></span>
+        </div>
+          <button class="price-cart__btn btn--orange add-to-cart-button">
+            <img src="images/icon-cart.svg"alt="cart image"class="price-cart__btn-img">
             Add to cart
           </button>
         </div>
       </section>
     </main>
 
+  
+<script src="inventory.js"></script>
+<script src="script.js"></script>
    <!-- Bootstrap JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
