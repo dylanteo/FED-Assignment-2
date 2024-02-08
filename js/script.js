@@ -92,7 +92,7 @@ function removeItem(index) {
 function checkout() {
     // Add event listener to the "CHECKOUT" button
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let totalPrice = cart.reduce((sum, item) => sum + (parseFloat(item.price.slice) * item.quantity), 0);
+    let totalPrice = cart.reduce((sum, item) => sum + (parseFloat(item.price.slice(1)) * item.quantity), 0);
     document.getElementById('pointstoadd').textContent = `POINTS: ${localStorage.getItem('points')} (100 points=$1)`
     document.getElementById('checkoutform').addEventListener("submit", function(e){
         e.preventDefault();

@@ -108,7 +108,7 @@ function updatePageContent(item) {
     
     page.querySelector('.price-main__heading').textContent = item.itemname;
     page.querySelector('.price-txt').textContent = item.description;
-    page.querySelector(".price-box__main-new").textContent = price;
+    page.querySelector(".price-box__main-new").textContent = '$'+ price;
     page.querySelector('.price-box__old').textContent = (price * 2).toFixed(2);
     page.querySelector("#stock").textContent = item.stock;
     document.querySelector('.img-main').src = `https://fedassignment2-b6e1.restdb.io/media/${item.photo[0]}`
