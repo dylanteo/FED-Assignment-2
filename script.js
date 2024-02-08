@@ -145,7 +145,7 @@ function checkout() {
                     });
                     if (!pointsResponse.ok) throw new Error('Network response was not ok for points update');
                     let pointsData = await pointsResponse.json();
-                    let currentPoints = pointsData.points || 0;
+                    let currentPoints = pointsData.points;
                     let newTotalPoints = currentPoints + points - pointsused;
             
                     await fetch(`https://fedassignment2-b6e1.restdb.io/rest/pointcard/${id}`, {

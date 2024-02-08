@@ -19,7 +19,7 @@ const chartOptions = {
     plugins: [ChartDataLabels],
     type: "pie",
     data: {
-        labels: ["10 points", "20 points", "30 points", "40 points", "50 points", "60 points"],
+        labels: ["50", "100", "200", "300", "400", "500"],
         datasets: [{ backgroundColor: segmentColors, data: segmentData }],
     },
     options: {
@@ -46,9 +46,11 @@ let animationStep = 101;
 function determineValue(angle) {
     const matchingRange = angleRanges.find(range => angle >= range.min && angle <= range.max);
     if (matchingRange) {
-        resultDisplay.innerHTML = `<p>You have won ${chartOptions.data.labels[matchingRange.value - 1]}!</p>`;
+        resultDisplay.innerHTML = `<p>You have won ${chartOptions.data.labels[matchingRange.value - 1]} points!</p>`;
         // Do not enable the spin button here anymore. It will be re-enabled by the countdown timer
+        return chartOptions.data.labels[matchingRange.value - 1];
     }
+    
 }
 
 // New function to start a countdown timer
@@ -74,7 +76,7 @@ function startCountdown(duration) {
     }, 1000);
 }
 
-spinButton.addEventListener("click", function() {
+spinButton.addEventListener("click", async function() {
     spinButton.disabled = true;
     resultDisplay.innerHTML = `<p>Good Luck!</p>`;
     let stopAngle = Math.floor(Math.random() * 356);
@@ -87,11 +89,44 @@ spinButton.addEventListener("click", function() {
             chartInstance.options.rotation = 0;
         }
         if (spinCount > 15 && chartInstance.options.rotation === stopAngle) {
-            determineValue(stopAngle);
+            pointsearned = determineValue(stopAngle);
+            pointsearned = parseInt(pointsearned);
             clearInterval(spinInterval);
             spinCount = 0;
             animationStep = 101;
             startCountdown(60); // Start a 1-min countdown after spinning
+            addtoapi(pointsearned);
         }
     }, 10);
 });
+
+async function addtoapi(points){
+    // Update points
+    let APIKEY = "65b11c87a07ee8c4ea038308"
+    let id = localStorage.getItem('pointcardid')
+    let pointsResponse = await fetch(`https://fedassignment2-b6e1.restdb.io/rest/pointcard/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': APIKEY
+        }
+    });
+    if (!pointsResponse.ok) {
+        throw new Error(`HTTP error! Status: ${pointsResponse.status}`);
+    }
+
+    let pointsData = await pointsResponse.json();
+    let currentPoints = pointsData.points;
+    let newTotalPoints = currentPoints + points;
+
+    await fetch(`https://fedassignment2-b6e1.restdb.io/rest/pointcard/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': APIKEY
+        },
+        body: JSON.stringify({ points: newTotalPoints })
+    });
+    localStorage.setItem('points', newTotalPoints);
+}
+
