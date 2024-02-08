@@ -78,7 +78,7 @@ width: 100%; /* Button width */
 
 
 
-/* new part*/
+/* feature page styling*/
 .features {
   display: flex;
   align-items: center;
@@ -118,89 +118,18 @@ width: 100%; /* Button width */
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
 }
 
-.payment {
-  width: 500px;
-  height: 500px;
-  background-color: white;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 10px 50px;
-  display: none;
-  flex-direction: column;
-  -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
-}
 
-.payTitle {
-  font-size: 20px;
-  color: lightgray;
-}
 
 label {
   font-size: 14px;
   font-weight: 300;
 }
 
-.payInput {
-  padding: 10px;
-  margin: 10px 0px;
-  border: none;
-  border-bottom: 1px solid gray;
-}
-
-.payInput::placeholder {
-  color: rgb(163, 163, 163);
-}
-
-.cardIcons {
-  display: flex;
-}
-
-.cardIcon {
-  margin-right: 10px;
-}
-
-.cardInfo {
-  display: flex;
-  justify-content: space-between;
-}
 
 .sm {
   width: 30%;
 }
 
-.payButton {
-  position: absolute;
-  height: 40px;
-  bottom: -40;
-  width: 100%;
-  left: 0;
-  -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
-  background-color: #369e62;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.close {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  background-color: gray;
-  color: white;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 2px;
-}
 
 .productImg {
   width: 60%;
@@ -219,9 +148,8 @@ label {
   font-size: 75px;
   font-weight: 900;
 }
-
 .productDesc {
-  font-style: 24px;
+  font-size: 24px; /* Set the font size to 24 pixels */
   color: gray;
 }
 
@@ -305,10 +233,23 @@ label {
 }
 
 .nsButton {
-  padding: 15px;
-  font-weight: 600;
-  cursor: pointer;
+  display: inline-block; /* Allows block level properties */
+  background-color: #007bff; 
+  color: white;
+  text-align: center;
+  padding: 10px 20px; /* Button padding */
+  text-decoration: none; /* Removes underline from links */
+  border-radius: 5px; 
+  font-size: 16px;
+  transition: background-color 0.2s; /* Smooth background color change on hover */
 }
+
+.nsButton:hover, .nsButton:focus {
+  background-color: #0056b3; /* Darker shade for hover state */
+  color: white;
+  text-decoration: none; /* Keeps text decoration off on hover */
+}
+
 
 footer {
   display: flex;
@@ -388,29 +329,7 @@ footer {
     font-size: 20px;
   }
 
-  .slider{
-    clip-path: none;
-  }
 
-  .sliderImg{
-    width: 90%;
-  }
-
-  .sliderBg{
-    width: 100%;
-    height: 100%;
-  }
-
-  .sliderTitle{
-    display: none;
-  }
-
-  .sliderPrice{
-    top: unset;
-    bottom: -50;
-    left: 0;
-    background-color: lightgrey;
-  }
 
   .buyButton{
     right: 0;
@@ -488,8 +407,5 @@ footer {
     background-color: whitesmoke;
   }
 
-  .payment{
-    width: 90%;
-    padding: 20px;
-  }
+  
 }
