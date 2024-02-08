@@ -9,6 +9,7 @@
     
     <!-- Your custom styles -->
     <link rel="stylesheet" href="shoppingpage.css">
+    <link rel="stylesheet" href="lottie.css">
 </head>
 <body>
 
@@ -75,7 +76,14 @@
   </div>
 </nav>
   
-  <div class="sales-banner">
+
+<div id="loading-screen">
+  <div id="lottie-animation">
+      <dotlottie-player src="https://lottie.host/ba22b436-c8e7-49ec-980a-eab7a1b0052d/lFUDQhrfbm.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+  </div>
+</div>
+
+    <div class="sales-banner">
       Our Biggest Sales Yet. 50% off Everything
   </div>
 
@@ -335,7 +343,7 @@
 <script src="inventory.js"></script>
 <script src="script.js"></script>
 <!-- Bootstrap JS, Popper.js, and jQuery -->
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

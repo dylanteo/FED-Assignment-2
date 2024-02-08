@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updatePricesFromAPI() {
-    fetch('https://fedassignment2-b6e1.restdb.io/rest/item',{// Replace with your API URL
+    fetch('https://fedassignment2-b6e1.restdb.io/rest/item', { // Replace with your API URL
         method : 'GET',
         headers: {
             'x-apikey': APIKEY,
@@ -30,12 +30,21 @@ function updatePricesFromAPI() {
                 card.querySelector('.card-title').textContent = item.itemname;
                 card.querySelector('.card-text').textContent = `$${price}`;
                 img = card.querySelector('.card-img-top');
-                img.src = `https://fedassignment2-b6e1.restdb.io/media/${item.photo[0]}`
+                img.src = `https://fedassignment2-b6e1.restdb.io/media/${item.photo[0]}`;
             }
         });
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error:', error))
+    .finally(() => {
+        // Hide the loading screen here, after the data is fetched
+        document.getElementById('loading-screen').style.display = 'none';
+        document.body.style.visibility = 'visible';
+    });
 }
+
+// Call updatePricesFromAPI when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', updatePricesFromAPI);
+
 
 
 function getid(){
@@ -81,8 +90,16 @@ function updateProductPage() {
             updatePageContent(item);
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error:', error))
+    .finally(() => {
+        // Hide the loading screen here, after the data is fetched
+        document.getElementById('loading-screen').style.display = 'none';
+        document.body.style.visibility = 'visible';
+    });
 }
+
+
+
 
 function updatePageContent(item) {
     // Assuming '.price' is a container in your productpage.html

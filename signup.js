@@ -5,10 +5,11 @@ var apiUrl = 'https://fedassignment2-b6e1.restdb.io/rest/account'; // Replace wi
 
 function signup()
 {
-    document.getElementById("signup").addEventListener("submit", function(e){
+    document.getElementById("signup").addEventListener("submit", async function(e){
         
         e.preventDefault();
         
+        document.getElementById('loading-screen').style.display = 'flex';
 
         let username = document.getElementById("username").value;
         let email = document.getElementById("email").value;
@@ -33,14 +34,13 @@ function signup()
         }
 
 
-        fetch(apiUrl, settings)
+        await fetch(apiUrl, settings)
         .then(response =>{
             if (!response.ok) { // Check if response status is not OK
             throw new Error('Error:', error);
             }return response.json()
         })
-        .then(data => {
-            alert("Sign up Succesful!");
+        .then(async data => {
             console.log(data);
             let user = data;
             let cartsettings = {
@@ -64,17 +64,20 @@ function signup()
                     points: 0
                 })
             }
-            fetch('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', cartsettings)
+            await fetch('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', cartsettings)
             .then(data =>{
                 console.log(data);
             })
-            fetch('https://fedassignment2-b6e1.restdb.io/rest/pointcard', pointssettings)
+            await fetch('https://fedassignment2-b6e1.restdb.io/rest/pointcard', pointssettings)
             .then(data =>{
                 console.log(data);
             })
+            document.getElementById('loading-screen').style.display = 'none';
+            alert("Sign up Succesful!");
         })
         .catch(error =>{
             console.error('Error:', error);
+            document.getElementById('loading-screen').style.display = 'none';
             alert("Email or username already in use / Invalid email");
         });
         document.getElementById("register-form").reset();
@@ -86,7 +89,7 @@ function login(){
     document.getElementById("loginform").addEventListener("submit", function(e){
         e.preventDefault(); 
         
-    
+        document.getElementById('loading-screen').style.display = 'flex';
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         
@@ -106,8 +109,8 @@ function login(){
         })
         .then(async data => {
             if (data.length > 0 && data[0].password === password) { // Assuming the API returns a token on successful login
-                console.log(data);
-                alert("Login successful!");
+                //console.log(data);
+                
                 // Store the token/session data
                 localStorage.setItem('username', username); // Storing token instead of username
                 email = data[0].email;
@@ -117,15 +120,19 @@ function login(){
 
                 await fetchAdditionalData('https://fedassignment2-b6e1.restdb.io/rest/pointcard', settings, 'pointcardid');
                 await fetchAdditionalData('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', settings, 'cartid');
+                document.getElementById('loading-screen').style.display = 'none';
+                alert("Login successful!");
                 window.location.href = "index.html";
                 
             } else {
                 // Handle login failure
+                document.getElementById('loading-screen').style.display = 'none';
                 alert('Login failed!');
             }
         })
         .catch(error => {
             console.error('Error:', error);
+            document.getElementById('loading-screen').style.display = 'none';
             alert("Login failed!");
         });
     });
