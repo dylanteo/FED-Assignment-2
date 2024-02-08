@@ -5,65 +5,45 @@ function addToCart() {
         button.addEventListener('click', function() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let itemImage, itemName, itemPrice;
-            let cardBody = this.closest('.card-body');
-            const cardID = cardBody.querySelector('.id').textContent.trim();
-            let cartid = localStorage.getItem('cartid');
-            let settings = {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-apikey': APIKEY
+            
+            if (window.location.href.includes("shopping.html")) {
+                let cardBody = this.closest('.card-body');
+                itemImage = cardBody.previousElementSibling.getAttribute('src');
+                itemName = cardBody.querySelector('.card-title').textContent;
+                itemPrice = cardBody.querySelector('.card-text').textContent;
+            }
+            if (window.location.href.includes("productpage.html")){
+                let page = document.querySelector(".price");
+                itemImage = document.querySelector('.img-main').getAttribute('src');
+                itemName = page.querySelector('.price-main__heading').textContent;
+                itemPrice = page.querySelector('.price-box__main-new').textContent;
+            }
 
-                }
+            // Ensure that item details are not undefined
+            if (!itemName || !itemPrice || !itemImage) {
+                console.error("Item details not found");
+                return; // Exit the function if item details are not found
+            }
+
+
+            
+            let item = {
+                name: itemName,
+                price: itemPrice,
+                image: itemImage,
+                quantity: 1
             };
-            fetch(`https://fedassignment2-b6e1.restdb.io/rest/item`,settings)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                data.forEach(element => {
-                    if (element.id == cardID){
-                        let item = element;
-                        fetch(`https://fedassignment2-b6e1.restdb.io/rest/shoppingcart/${cartid}`,settings)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data=>{
-                            let cart = data.id;
-                            cart.push(item);
-                            let settings = {
-                                method: 'PATCH',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'x-apikey': APIKEY
-                                },
-                                body: JSON.stringify({ id: cart })
-                            };
-                            
-                
-                            fetch(`https://fedassignment2-b6e1.restdb.io/rest/shoppingcart/${cartid}`, settings)
-                            .then(response => {
-                                if (response.status === 200) {
-                                  console.log('Data updated successfully!');
-                                } else {
-                                  console.error('Failed to update data. Status code:', response.status);
-                                }
-                              })
-                        })
-                        
 
-            
-                    }
-                });
-            
+            const existingItem = cart.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push(item);
+            }
 
-            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+
         });
     });
 }
