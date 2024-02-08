@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>E-COMMERCE PRODUCT</title>
 </head>
   <body>
@@ -68,20 +69,6 @@
               <li class="nav-item"id="usernamePlaceholder">
                 <a class="nav-link mx-2 text-uppercase" href="login.html" ><i class="fa-solid fa-circle-user me-1"></i> Account</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link profile-dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-circle-user me-1"></i> Profile <i class="fa-solid fa-arrow-down"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                    <div class="profile-card">
-                        <div class="profile-card-body">
-                            <h5 class="profile-card-title">Name</h5>
-                            <p class="profile-card-text">Points:</p>
-                            <a href="#" class="btn btn-danger btn-logout">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
             
         </ul>
       </div>
@@ -100,60 +87,96 @@
     <!-- Main item container -->
     <main class="item">
       <section class="img">
-        <img src="images/NikeShoeShopping6.jpeg" alt="" class="img-main" />
+        <img  class="img-main">
         
       </section>
 
       <section class="price">
         <h2 class="price-sub__heading">NIKE.CO</h2>
-        <h1 class="price-main__heading">Limited Edition</h1>
-        <p class="price-txt">
-          
-Introducing the stunning Yellow Nike Dunk Limited Edition sneakers, a true embodiment of style and individuality. These extraordinary kicks are a vibrant burst of sunshine on your feet, showcasing a brilliant shade of yellow that's impossible to ignore. With their sleek design and attention to detail, they effortlessly blend streetwear coolness with a touch of luxury.
-
-Crafted from high-quality materials, these limited edition Dunks offer supreme comfort and durability. The iconic Nike swoosh elegantly graces the sides, adding a touch of timeless class.These sneakers are your statement piece.
-        </p>
+        <h1 class="price-main__heading"></h1>
+        <p class="price-txt"></p>
         <div class="price-box">
           <div class="price-box__main">
-            <span class="price-box__main-new">$125.00</span>
+            <span class="price-box__main-new"></span>
             <span class="price-box__main-discount"> 50%</span>
           </div>
-          <span class="price-box__old">$250.00</span>
+          <span class="price-box__old"></span>
         </div>
 
-        <div class="price-btnbox">
-          <div class="price-btns">
-            <button class="price-btn__add price-btn">
-              <img
-                src="images/icon-plus.svg"
-                alt="plus sign"
-                class="price-btn__add-img price-btn__img"
-              />
-            </button>
-            <span class="price-btn__txt">0</span>
-            <button class="price-btn__remove price-btn">
-              <img
-                src="images/icon-minus.svg"
-                alt="minus sign"
-                class="price-btn__remove-img price-btn__img"
-              />
-            </button>
-          </div>
-          <button class="price-cart__btn btn--orange">
-            <img
-              src="images/icon-cart.svg"
-              alt="cart image"
-              class="price-cart__btn-img"
-            />
+        <div>
+          <span class = "price-btn__txt">Stock:</span>
+          <span class = "price-btn__txt" id="stock"></span>
+        </div>
+          <button class="price-cart__btn btn--orange add-to-cart-button">
+            <img src="images/icon-cart.svg"alt="cart image"class="price-cart__btn-img">
             Add to cart
           </button>
         </div>
       </section>
     </main>
 
-   <!-- Bootstrap JS, Popper.js, and jQuery -->
+
+<script src="inventory.js"></script>
+<script src="script.js"></script>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
-  </body>
+</body>
+
+<footer>
+  <div class="footerLeft">
+      <div class="footerMenu">
+          <h1 class="fMenuTitle">About Us</h1>
+          <ul class="fList">
+              <li class="fListItem">Company</li>
+              <li class="fListItem">Contact</li>
+              <li class="fListItem">Careers</li>
+              <li class="fListItem">Affiliates</li>
+              <li class="fListItem">Stores</li>
+          </ul>
+      </div>
+      <div class="footerMenu">
+          <h1 class="fMenuTitle">Useful Links</h1>
+          <ul class="fList">
+              <li class="fListItem">Support</li>
+              <li class="fListItem">Refund</li>
+              <li class="fListItem">FAQ</li>
+              <li class="fListItem">Feedback</li>
+              <li class="fListItem">Stories</li>
+          </ul>
+      </div>
+      <div class="footerMenu">
+          <h1 class="fMenuTitle">Products</h1>
+          <ul class="fList">
+              <li class="fListItem">Air Force</li>
+              <li class="fListItem">Air Jordan</li>
+              <li class="fListItem">Air Dunks</li>
+              <li class="fListItem">Running</li>
+              <li class="fListItem">Air Max</li>
+          </ul>
+      </div>
+  </div>
+  <div class="footerRight">
+      <div class="footerRightMenu">
+          <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
+          <div class="fMail">
+              <input type="text" placeholder="your@email.com" class="fInput">
+              <button class="fButton">Join!</button>
+          </div>
+      </div>
+      <div class="footerRightMenu">
+          <h1 class="fMenuTitle">Follow Us</h1>
+          <div class="fIcons">
+              <img src="images/facebook.png" alt="" class="fIcon">
+              <img src="images/twitter.png" alt="" class="fIcon">
+              <img src="images/instagram.png" alt="" class="fIcon">
+              <img src="images/whatsapp.png" alt="" class="fIcon">
+          </div>
+      </div>
+      <div class="footerRightMenu">
+          <span class="copyright">@NIKESG. All rights reserved. 2024.</span>
+      </div>
+  </div>
+</footer>
 </html>

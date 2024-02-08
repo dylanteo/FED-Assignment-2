@@ -45,17 +45,13 @@
                 <div class="col" style="padding-left:0;">ITEMS 3</div>
                 <div class="col text-right"></div>
             </div>
-            <form>
+            <form id="checkoutform">
                 <p>SHIPPING</p>
                 <select><option class="text-muted">Standard-Delivery- S$ 5.00</option></select>
                 <p id="pointstoadd">POINTS: </p>
-                <input id="pointstouse" placeholder="Enter points">
+                <input id="pointstouse" value=0 placeholder="Enter points" required>
+                <button type=submit class="btn" id = "checkout">CHECKOUT</button>
             </form>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL PRICE</div>
-                <div class="col text-right"></div>
-            </div>
-            <button class="btn" id = "checkout">CHECKOUT</button>
         </div>
     </div>
     
@@ -67,22 +63,21 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Payment successful</h5>
+          <h5 class="modal-title">Payment</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true" id="x">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <p>Payment type: Net banking</p>
-          <p>Bank: HDFC</p>
-          <p>points earned: 123</p>
-          <p>Email: sudheerreddy.ui@gmail.com</p>
-          <p>Amount paid: $500.00</p>
-          <p>Transaction id: 125478965698</p>
+          <p id="pointsearned">Points earned: </p>
+          <p id="user">Username: </p>
+          <p id="total">Amount paid: </p>
+          <p id="usedpoints">Points Used: </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Print</button>
+          <button type="button" class="btn btn-primary" id="confirm">Confirm Payment</button>
         </div>
       </div>
     </div>

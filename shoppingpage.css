@@ -321,6 +321,7 @@ footer {
 .footerLeft {
     flex: 2;
     display: flex;
+
     justify-content: space-between;
     padding: 50px;
 }
