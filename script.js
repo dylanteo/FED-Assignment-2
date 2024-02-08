@@ -212,6 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (window.location.href.includes('checkout.html')) {
         displayCart();
         checkout();
+    } else if(window.location.href.includes('index.html')){
+        window.onload = function() {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.body.style.visibility = 'visible;';
+        };
     }
 });
 
@@ -238,3 +243,5 @@ if (localStorage.getItem('loggedin') === 'true' && !window.location.href.include
         location.reload();
     })
 }
+
+
