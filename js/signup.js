@@ -122,7 +122,7 @@ function login(){
                 await fetchAdditionalData('https://fedassignment2-b6e1.restdb.io/rest/shoppingcart', settings, 'cartid');
                 document.getElementById('loading-screen').style.display = 'none';
                 alert("Login successful!");
-                window.location.href = "index.html";
+                window.location.href = "../index.html";
                 
             } else {
                 // Handle login failure

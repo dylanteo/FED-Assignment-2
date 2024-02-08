@@ -183,7 +183,7 @@ function checkout() {
             
                     alert("Payment Confirmed");
                     localStorage.removeItem('cart');
-                    window.location.href = "index.html"; // Redirect to the home page after all operations are complete
+                    window.location.href = "../index.html"; // Redirect to the home page after all operations are complete
                 } catch (error) {
                     console.error('Error during checkout process:', error);
                 }
