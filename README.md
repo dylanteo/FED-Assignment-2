@@ -1,65 +1,26 @@
-# Your Project's Name
+Project Name: Nike Shoe App
 
-One or two paragraphs providing an overview of your project. Tell us about your project.
+Nike Shoe App is a dynamic e-commerce platform designed to offer users an interactive and engaging shopping experience. With vibrant colors, gamification features, and seamless navigation, the app provides a visually appealing interface for browsing and purchasing Nike shoes. Users can earn points through various actions, including spinning a daily wheel, enhancing their shopping journey while enjoying a responsive design optimized for all devices.                                                                                                                                            
 
-Essentially, this part is your sales pitch.
- 
-## Design Process
- 
-Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+ Features:
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+User Authentication: Users can sign in and log in to their accounts to access personalized features and earn points.
+Spin Wheel: Users can spin the wheel once a day to earn points, adding a gamified element to the shopping experience.
+Points System: Points are earned both through spinning the wheel and through making purchases. These points are accumulated and stored in the user's account.
+Database Integration: User data, including points earned and purchases made, are stored in the database and linked to each user's login username/ID.
+Responsive Design: Bootstrap and jQuery were utilized, along with external libraries, to ensure that the website is responsive and interactive across various screen sizes and devices.
+Features Left to Implement:
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. 
-These files should themselves either be included as a pdf file in the project itself (in an separate directory)
-Include the Adobe XD wireframe as a folder. You can include the XD share url. 
+Further optimization of the spin wheel feature to enhance user experience.
+Integration of additional gamification elements to increase user engagement.
+Credits:
 
-## Features
-
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
-### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
-
-### Features Left to Implement
-- Another feature idea
-
-## Technologies Used
-
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+Cedric: front end design for all pages
+dylan: Api to load images and accounts to front end pages
+Content:
 
 
-## Testing
+Images sourced from Nike Singapore : https://www.nike.com/sg/men?cp=49748628652_search_%7Csg%7CCore+Brand+-+Core+Brand+-+General+-+EN_EN%7CGOOGLE%7Cnike&ds_rl=1300698&gad_source=1&ds_rl=1300698&gclid=CjwKCAiAlJKuBhAdEiwAnZb7ldWKEVaU3Dlm-Yn04etH8wCtaZEDiTAWGL_6ZLgMIcC8OaQXO49gjBoCD6wQAvD_BwE&gclsrc=aw.ds
+Icons: https://www.vecteezy.com/free-vector/social-media-icons
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
-## Credits
-
-### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-
-### Media
-- The photos used in this site were obtained from ...
-
-### Acknowledgements
-
-- I received inspiration for this project from X
+Inspiration drawn from real-world shoe apps for gamification features.
